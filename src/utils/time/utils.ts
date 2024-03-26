@@ -5,7 +5,6 @@ export function timeDiff(current: number, start: number, end: number) {
   let status = LAUNCHPAD_STATUS.END;
   if (current < start) status = LAUNCHPAD_STATUS.UPCOMING;
   if (current < end) status = LAUNCHPAD_STATUS.INPROGRESS;
-  console.log(status);
   const diff =
     status === LAUNCHPAD_STATUS.UPCOMING
       ? start - current
