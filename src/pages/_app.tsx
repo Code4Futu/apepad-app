@@ -8,6 +8,8 @@ import { DefaultSeo, DefaultSeoProps } from "next-seo";
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
+import { PetraWallet } from "petra-plugin-wallet-adapter";
+import { AptosWalletAdapterProvider } from "@aptos-labs/wallet-adapter-react";
 
 type NextPageWithLayout = NextPage & {
   Layout?: React.FC<React.PropsWithChildren<unknown>>;
@@ -49,10 +51,11 @@ import { useEffect } from "react";
 import LayoutDefault from "@/components/layout/main-template/main";
 import Topbar from "@/components/top-bar/topbar";
 import Header from "@/components/layout/header/header";
-import Footer from "@/components/layout/footer/footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
+  const wallets = [new PetraWallet()];
 
   useEffect(() => {
     const linkElement = document.createElement("link");
@@ -102,7 +105,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <DefaultSeo {...SEO} />
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-          <ToastContainer theme="dark" position="bottom-right" />
+        <AptosWalletAdapterProvider plugins={wallets} autoConnect={true}>
+        <ToastContainer theme="dark" position="bottom-right" />
           {router.pathname.includes("concepts") ? (
             <Component {...pageProps} />
           ) : (
@@ -112,7 +116,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Header />
                 {/* //Header */}
                 <Topbar />
-
                 {/* Main */}
                 <div className="lg:h-full lg:flex-1">
                   <div className="flex flex-col justify-center items-center w-full">
@@ -125,6 +128,7 @@ export default function App({ Component, pageProps }: AppProps) {
               </div>
             </LayoutDefault>
           )}
+          </AptosWalletAdapterProvider>
         </RainbowKitProvider>
       </WagmiConfig>
     </>
