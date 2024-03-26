@@ -1,0 +1,80 @@
+/*
+Utilities
+*/
+
+.logo--text {
+  @apply font-altsans font-bold uppercase tracking-wide;
+}
+
+/* Gradient Text Presets
+-------------------- */
+.grad-text {
+  @apply bg-gradient-to-r from-primary to-secondary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grad-text-pa {
+  @apply bg-gradient-to-r from-accent to-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grad-text-sa {
+  @apply bg-gradient-to-r from-secondary to-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grad-text-ap {
+  @apply bg-gradient-to-r from-accent to-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Icons Themes 
+-------------------- */
+.icon-primary {
+  --fa-secondary-opacity: 1;
+  --fa-primary-color: hsla(var(--bc));
+  --fa-secondary-color: hsla(var(--p));
+}
+
+.icon-accent {
+  --fa-secondary-opacity: 1;
+  --fa-primary-color: hsla(var(--bc));
+  --fa-secondary-color: hsla(var(--a));
+}
+
+.icon-success {
+  --fa-secondary-opacity: 1;
+  --fa-primary-color: hsla(var(--bc));
+  --fa-secondary-color: hsla(var(--su));
+}
+
+.icon-error {
+  --fa-secondary-opacity: 1;
+  --fa-primary-color: hsla(var(--bc));
+  --fa-secondary-color: hsla(var(--er));
+}
+
+.fi {
+  @apply flex-shrink-0 ring-1 ring-base-content ring-opacity-20;
+}
+
+.icon-gitbook .path {
+  @apply fill-base-content opacity-70 hover:fill-primary hover:opacity-100;
+}
+
+/* Misc 
+-------------------- */
+.disabled {
+  @apply cursor-not-allowed pointer-events-none opacity-50;
+}
+
+/* for sticky header */
+.anchor:target:before {
+  content: " ";
+  @apply block invisible h-20 -mt-20;
+  display: block;
+}

@@ -1,0 +1,60 @@
+/*
+Typography
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+.title {
+  @apply text-base-content font-semibold;
+}
+
+strong,
+b {
+  @apply font-semibold;
+}
+
+.page-heading {
+  @apply pb-4;
+  h1 {
+    @apply text-xl;
+  }
+}
+
+.text-success {
+}
+
+.numbers {
+}
+
+.type {
+  @apply leading-relaxed;
+  h2 {
+    @apply text-2xl mt-12;
+  }
+  h4, h5, h6 {
+  }
+  p {
+    @apply mt-4;
+  }
+  ol,
+  ul {
+    @apply ml-4 mt-4;
+  }
+  ol li {
+    @apply list-decimal mt-2;
+  }
+  ul li {
+    @apply list-disc mt-2;
+  }
+  .img {
+    @apply mt-6;
+    img {
+      @apply rounded-box;
+    }
+  }
+  .code {
+    @apply mt-6 bg-base-200 p-4 rounded-box font-mono whitespace-pre;
+  }
+}

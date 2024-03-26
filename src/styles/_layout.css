@@ -1,0 +1,112 @@
+/*
+Containers & Core Layout
+*/
+.container {
+  @apply w-full max-w-screen-xl mx-auto px-3 md:px-6;
+}
+
+.container-sm {
+  @apply w-full max-w-screen-sm mx-auto px-3 md:px-6;
+}
+
+.container-md {
+  @apply w-full max-w-screen-md mx-auto px-3 md:px-6;
+}
+
+.container-lg {
+  @apply w-full max-w-screen-lg mx-auto px-3 md:px-6;
+}
+
+.container-fluid {
+  @apply w-full mx-auto px-3 md:px-6;
+}
+
+.main-layout--wrapper {
+  /* @apply 2xl:p-4 w-full h-full z-[1]; */
+  @apply w-full h-full z-[1];
+}
+
+.has-Modal.main-layout--wrapper {
+  @apply overflow-hidden;
+}
+
+.main-layout {
+  /* @apply bg-base-200 bg-opacity-80 backdrop-blur-sm flex flex-col w-full h-full lg:overflow-hidden relative mx-auto max-w-screen-2xl 2xl:rounded-xl 2xl:shadow-lg; */
+  @apply flex flex-col w-full h-full relative mx-auto max-w-screen-2xl;
+}
+
+.has-PanelRight .main-layout {
+  @apply lg:overflow-hidden;
+}
+
+.pane-left {
+  /* @apply fixed top-0 bottom-0 border-r border-base-content border-opacity-10 2xl:rounded-l-xl z-50; */
+  @apply fixed top-0 bottom-0 border-r border-base-content border-opacity-10 z-50;
+}
+
+/* .pane-left .header,
+.pane-left .header::before {
+  @apply 2xl:rounded-tl-xl;
+} */
+
+.pane-center {
+  @apply flex flex-col transition;
+}
+
+.pane-center--body {
+  /* @apply h-screen 2xl:h-[calc(100vh-2rem)] lg:overflow-y-auto overflow-x-hidden; */
+  @apply h-screen;
+}
+
+.has-PanelRight .pane-center--body {
+  @apply lg:overflow-y-auto lg:overflow-x-hidden;
+}
+
+.pane-right {
+  /* @apply hidden lg:block fixed top-0 bottom-0 w-80 overflow-hidden border-l border-base-content border-opacity-10 2xl:rounded-r-xl right-[max(0px,calc(50%-56rem))]; */
+  @apply hidden lg:block fixed top-0 bottom-0 w-80 overflow-hidden right-[max(0px,calc(50%-51.2rem))];
+}
+
+.has-PanelRight .pane-right {
+  @apply border-l border-base-content border-opacity-10;
+}
+
+.pane-right.is--closed {
+  @apply w-0;
+}
+
+.pane-right.is--open {
+  @apply w-80;
+}
+
+.pane-right--body {
+  @apply w-full h-full flex flex-col items-stretch;
+}
+
+/* Header & Footer
+------------------------------------------- */
+.header {
+  @apply sticky flex-shrink-0 top-0 left-0 right-0 w-full z-40 h-14 p-0 border-b border-base-content border-opacity-10 overflow-hidden md:overflow-visible;
+}
+
+.header::before {
+  content: "";
+  @apply bg-base-200 bg-opacity-80 backdrop-blur-lg h-full absolute -z-10 inset-0;
+}
+
+.footer {
+  @apply w-full py-4 flex flex-col border-t border-base-content border-opacity-10 mt-4 overflow-hidden;
+}
+
+/* Mobile Navigation
+------------------------------------------- */
+.nav-mobile {
+  @apply bg-base-100 bg-opacity-80 backdrop-blur flex lg:hidden w-full !fixed bottom-0 left-0 right-0 z-10;
+}
+
+.nav-mobile-item {
+  @apply w-full flex flex-col items-center justify-center py-3 font-medium transition cursor-pointer;
+  i {
+    @apply mb-1;
+  }
+}

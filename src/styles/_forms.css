@@ -1,0 +1,72 @@
+/*
+Forms
+*/
+button,
+input[type="number"],
+input[type="interger"],
+input[type="text"] {
+  @apply transition;
+}
+
+.input:focus {
+  @apply border-primary transition outline-2 outline-offset-0 outline-primary/30;
+}
+
+.input::placeholder {
+  @apply text-base-content text-opacity-70;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[disabled] {
+  border: none;
+}
+
+input[type="number"]:disabled {
+  opacity: 0.1;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-ghost {
+  @apply bg-transparent border-0 outline-0 focus:outline-0 focus:border-0;
+}
+
+/* Labels */
+.form-control input:focus + .label-placeholder {
+  @apply hidden;
+}
+
+/* Buttons */
+.btn {
+  @apply !gap-0;
+}
+
+.btn-base200 {
+  @apply bg-base-200 border-base-200;
+}
+
+.btn-md {
+  @apply h-[2.5rem] min-h-[2.5rem];
+}
+
+.btn-md.btn-circle {
+  @apply w-[2.5rem];
+}
+
+.btn-ghost:hover {
+  @apply bg-base-100;
+}
+
+.btn-disabled,
+.btn-disabled:hover,
+.btn[disabled],
+.btn[disabled]:hover {
+  @apply text-opacity-70 bg-opacity-70;
+}

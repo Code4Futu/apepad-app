@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "dev-admin-sided-fi"
+  },
+  "targets": {
+    "dev-admin-sided-fi": {
+      "hosting": {
+        "lootbot-user-dashboard-mainet": [
+          "lootbot-user-dashboard-mainet"
+        ],
+        "lootbot-user-dashboard-stag": [
+                  "lootbot-user-dashboard-stag"
+                ]
+      }
+    }
+  },
+  "etags": {}
+}

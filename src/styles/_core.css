@@ -1,0 +1,100 @@
+:root {
+  --swiper-navigation-size: 40px !important;
+}
+
+html {
+  @apply scroll-smooth w-full h-full;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
+}
+
+body {
+  @apply antialiased text-base-content overflow-x-hidden;
+}
+
+body,
+html,
+:root {
+  @apply bg-base-300;
+}
+
+body.has-Modal {
+  @apply overflow-hidden;
+}
+
+#__next {
+  @apply w-full h-full;
+}
+
+/*
+Tables
+*/
+table {
+}
+
+.th {
+  @apply w-auto py-3 px-4 font-bold text-base-content/70 bg-base-content/10 tracking-wide;
+}
+
+.td {
+  @apply w-auto py-4 px-4 whitespace-nowrap;
+}
+
+.tr {
+  @apply relative;
+}
+
+thead .tr {
+  @apply relative overflow-hidden;
+  .th:first-child {
+    @apply md:rounded-l-box;
+  }
+  .th:last-child {
+    @apply md:rounded-r-box;
+  }
+}
+
+/* .tr::before {
+  content: " ";
+  @apply bg-base-200 bg-opacity-40 backdrop-blur w-full h-full absolute inset-0 bg-no-repeat bg-cover -z-50 rounded-box;
+  #253143
+} */
+
+.th,
+.thead .th {
+  @apply text-xs font-medium uppercase;
+}
+
+tbody .tr {
+  @apply transition border-b border-base-content/10;
+}
+
+tbody .tr:hover {
+  @apply bg-base-100/50 shadow;
+}
+
+tbody .tr-hilite {
+  @apply bg-base-100 shadow;
+}
+
+/* tbody .tr:nth-child(even) {
+  @apply bg-base-100;
+} */
+
+/* tbody .tr:hover {
+  @apply bg-accent bg-opacity-30;
+} */
+
+/* .tr td:first-child,
+.tr th:first-child {
+  @apply rounded-tl-box rounded-bl-box;
+}
+
+.tr td:last-child {
+  @apply rounded-tr-box rounded-br-box;
+} */
+
+/*
+Misc
+*/
+:focus-visible {
+}

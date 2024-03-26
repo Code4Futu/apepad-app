@@ -1,0 +1,54 @@
+{
+  "hosting": [{
+    "target": "lootbot-user-dashboard-mainet",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [ {
+      "source": "/",
+      "destination": "/index.html"
+    },
+      {
+        "source": "/revshare",
+        "destination": "/revshare.html"
+      },
+      {
+        "source": "/stake",
+        "destination": "/stake.html"
+      },
+      {
+        "source": "/tracker",
+        "destination": "/tracker.html"
+      }
+    ]
+  }, {
+    "target": "lootbot-user-dashboard-stag",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [ {
+      "source": "/",
+      "destination": "/index.html"
+    },
+      {
+        "source": "/revshare",
+        "destination": "/revshare.html"
+      },
+      {
+        "source": "/stake",
+        "destination": "/stake.html"
+      },
+      {
+        "source": "/tracker",
+        "destination": "/tracker.html"
+      }
+    ]
+  }
+  ]
+}
