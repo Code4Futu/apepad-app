@@ -1,23 +1,13 @@
-import BalanceChecker from "@/components/core/balance-checker/balance-checker";
 import Logo from "@/components/core/logo/logo";
 import WalletConnectBtn from "@/components/wallet-connect-btn/wallet-connect-btn";
 import React from "react";
 import Screen from "../../common/Responsive";
-import { useSnapshot } from "valtio";
-import { leftSideBarProxy } from "@/proxy-state/global";
 
 // ClassName
 const headerClass =
   "sticky flex flex-col justify-start flex-shrink-0 top-0 left-0 right-0 w-full z-40 py-3 md:py-6 bg-[#1A1D1F] shadow-[inset_1px_0_0_0_#111315]";
-const pageNavClass = "flex flex-col justify-end z-40 mt-3 -mb-3 bg-base-300/90";
-const navItemClass =
-  "flex flex-col justify-center items-center font-medium transition group/page-nav";
-const navItemActiveClass = "grad-text";
-const navItemNormalClass = "text-base-content/70 hover:text-base-content";
 
 function Header() {
-  const { sidebarLeft } = useSnapshot(leftSideBarProxy);
-
   return (
     <>
       <div id={"header"} className={headerClass}>
@@ -31,14 +21,6 @@ function Header() {
           </Screen>
 
           <Screen from={"lg"}>
-            {/* <button
-              className="btn btn-md btn-ghost"
-              onClick={() => {
-                leftSideBarProxy.sidebarLeft = !sidebarLeft;
-              }}
-            >
-              <i className="fa-regular fa-bars"></i>
-            </button> */}
             <label className="input border-none h-10 w-[360px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

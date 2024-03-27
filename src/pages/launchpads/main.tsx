@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Filter from "./filter";
 import { LaunchpadItem } from "./item";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import { getAptosClient } from "@/utils/aptos/aptosClient";
 
 const Main: React.FC = (props) => {
   const [infoTab, setInfoTab] = useState("all");
   const [view, setView] = useState("grid");
+  const { account, network, signAndSubmitTransaction } = useWallet();
+  const aptos = getAptosClient();
 
   return (
     <div className="fadein w-full mx-auto text-sm mt-6 space-y-4 md:space-y-6">
       <div className="grid grid-cols-1 gap-4 md:gap-6">
-        <span className="text-[40px] font-semibold text-[#FCFCFC] leading-[48px]">
+        <span className="text-[32px] md:text-[40px] font-semibold text-[#FCFCFC] leading-[48px]">
           All Launchpads
         </span>
       </div>
