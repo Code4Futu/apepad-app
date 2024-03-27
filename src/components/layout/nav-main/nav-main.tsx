@@ -20,7 +20,7 @@ const navItem = [
       },
       {
         name: "Create Fairlaunch",
-        link: "/fair-launch",
+        link: "/launchpads/create-fairlaunch",
       },
       {
         name: "Create Subcription",
