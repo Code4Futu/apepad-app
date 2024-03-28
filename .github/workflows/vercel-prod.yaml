@@ -4,9 +4,9 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_PROD }}
 on:
   push:
-    - main
+    branches: [main]
 jobs:
-  Deploy-Preview:
+  Deploy-Prod:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
