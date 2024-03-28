@@ -32,11 +32,35 @@ const navItem = [
     name: "Lock",
     icon: "fa-solid fa-lock",
     link: "/lock",
+    subMenu: [
+      {
+        name: "Create",
+        link: "/create-lock",
+      },
+      {
+        name: "Token",
+        link: "/token-lock",
+      },
+      {
+        name: "Liquidity",
+        link: "/liquidity-lock",
+      },
+    ],
   },
   {
     name: "Airdrop",
     icon: "fa-solid fa-gift",
     link: "/air-drop",
+    subMenu: [
+      {
+        name: "Create Airdrop",
+        link: "/create-airdrop",
+      },
+      {
+        name: "Airdrop List",
+        link: "/airdrop-list",
+      },
+    ],
   },
   {
     name: "Token",
@@ -61,7 +85,7 @@ function MainNavigation() {
   const mainNavClass = "flex flex-col w-full h-full lg:bg-[#1A1D1F]";
 
   const navItemClass =
-    "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition";
+    "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition flex-1";
   const navItemNormalClass =
     "text-[#6F767E] hover:bg-[#272B30]/20 hover:text-green-500";
   const navItemActiveClass =
@@ -89,7 +113,7 @@ function MainNavigation() {
                   key={idx}
                   href={item.link}
                 >
-                  <span className="inline-flex items-center justify-center w-8 mr-3">
+                  <span className="inline-flex items-center justify-center w-6 h-6 mr-3">
                     <i className={`${item.icon} text-lg`}></i>
                   </span>
                   <span className="whitespace-nowrap mr-4">{item.name}</span>
@@ -106,7 +130,7 @@ function MainNavigation() {
                     className={`grid items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition ${navItemNormalClass}`}
                   >
                     <div>
-                      <span className="inline-flex items-center justify-center w-8 mr-3">
+                      <span className="inline-flex items-center justify-center w-6 h-6 mr-5">
                         <i className={`${item.icon} text-lg`}></i>
                       </span>
                       <span className="whitespace-nowrap mr-4">

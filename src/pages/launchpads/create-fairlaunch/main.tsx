@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
-import FairlaunchTabs from "./tabs";
-import FairlaunchForm from "./form";
+import FairlaunchTabs from "./components/Tabs";
+import CreateTokenForm from "./components/pages/TokenForm/CreateTokenForm";
+import CreatePoolForm from "./components/pages/PoolForm/CreatePoolForm";
+import CreateSocialForm from "./components/pages/SocialForm/CreateSocialForm";
 
 const Main: React.FC = (props) => {
   const [tab, setTab] = useState<string>("token");
@@ -13,8 +15,10 @@ const Main: React.FC = (props) => {
         </span>
         <FairlaunchTabs tab={tab} setTab={setTab} />
       </div>
-      <div className="grid grid-cols-1 gap-4 p-4 md:gap-8 md:p-6 bg-[#1A1D1F] rounded-lg">
-        <FairlaunchForm />
+      <div className="relative grid grid-cols-1 gap-4 p-4 md:gap-8 md:p-6 bg-[#1A1D1F] rounded-lg">
+        {tab === "token" && <CreateTokenForm />}
+        {tab === "pool" && <CreatePoolForm />}
+        {tab === "social" && <CreateSocialForm />}
       </div>
     </div>
   );
