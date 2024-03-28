@@ -26,7 +26,7 @@ function WalletConnectBtn() {
     );
   }
 
-  if (isLoading || !wallets[0]) {
+  if (isLoading || !wallets?.[0]) {
     return (
       <button
         type="button"
