@@ -3,7 +3,7 @@ import { timeDiff } from "@/utils/time/utils";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-export const LaunchpadItem = () => {
+export default function LaunchpadItem() {
   const [timeStartDiff, setTimeStartDiff] = useState<{
     d: number;
     h: number;
@@ -139,4 +139,4 @@ export const LaunchpadItem = () => {
       </div>
     </div>
   );
-};
+}
