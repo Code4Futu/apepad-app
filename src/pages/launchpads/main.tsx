@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Filter from "./filter";
-import LaunchpadItem from "./components/LaunchpadItem";
+import LaunchpadItem from "./create-fairlaunch/components/LaunchpadItem";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { getAptosClient } from "@/utils/aptos/aptosClient";
 
