@@ -43,3 +43,30 @@
   color: #6f767e !important;
   border-radius: 12px !important;
 }
+
+.ck-toolbar__items {
+  background: #272b30 !important;
+}
+
+.ck-toolbar_grouping {
+  padding: 0px !important;
+  color: #fff !important;
+}
+
+.ck,
+.ck-button__label {
+  color: #fff !important;
+}
+
+.ck.ck-button:not(.ck-disabled):hover {
+  background: #272b30 !important;
+}
+
+.ck.ck-editor__main > .ck-editor__editable {
+  background: #111315 !important;
+}
+
+.steps .step-success:after {
+  color: #90e788;
+  background: #90e788;
+}

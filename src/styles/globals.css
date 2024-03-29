@@ -1,3 +1,6 @@
+@import "react-quill/dist/quill.snow.css";
+
 @import url(fonts.css);
 @import url(tailwind.css);
 @import url(styles.css);
+@import "./quill-js-overrides.css";
