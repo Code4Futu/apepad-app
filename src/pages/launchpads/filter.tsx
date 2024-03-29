@@ -71,9 +71,9 @@ function Filter({ infoTab, setInfoTab, view, setView }: FilterProps) {
           </div>
         </div>
 
-        <div className="flex items-start lg:items-center self-stretch md:p-3 flex-col gap-6 lg:flex-row lg:justify-between">
-          <div className="flex items-center gap-4 xl:gap-6 max-md:flex-wrap">
-            <label className="input border-none h-10 w-full max-w-full md:w-[360px] xl:w-[411px] md:w-full md:w-[360px] xl:w-[411px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
+        <div className="flex items-center self-stretch md:p-3 flex-col gap-6 lg:flex-row lg:justify-between">
+          <div className="flex items-center gap-6 max-md:flex-wrap">
+            <label className="input border-none h-10 w-full max-w-[360px] md:w-[360px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -96,8 +96,8 @@ function Filter({ infoTab, setInfoTab, view, setView }: FilterProps) {
               <option disabled selected>
                 All Status
               </option>
-              <option>Live</option>
-              <option>Ended</option>
+              <option>Han Solo</option>
+              <option>Greedo</option>
             </select>
             <select className="select px-4 w-full max-w-[105px] max-h-10">
               <option disabled selected>

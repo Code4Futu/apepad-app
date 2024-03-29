@@ -19,13 +19,6 @@
     },
     "types": ["vite/client"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/pages/concepts/index.tsx",
-    "src/pages/concepts/dashboard/burner/burn.tsx.bk",
-    "src/pages/launchpads/create-fairlaunch/components/FormImageUploader.tss"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/concepts/index.tsx", "src/pages/concepts/dashboard/burner/burn.tsx.bk"],
   "exclude": ["node_modules"]
 }
