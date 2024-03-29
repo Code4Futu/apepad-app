@@ -31,34 +31,12 @@ const navItem = [
   {
     name: "Lock",
     icon: "fa-solid fa-lock",
-    subMenu: [
-      {
-        name: "Create",
-        link: "/create-lock",
-      },
-      {
-        name: "Token",
-        link: "/token-lock",
-      },
-      {
-        name: "Liquidity",
-        link: "/liquidity-lock",
-      },
-    ],
+    link: "/lock",
   },
   {
     name: "Airdrop",
     icon: "fa-solid fa-gift",
-    subMenu: [
-      {
-        name: "Create Airdrop",
-        link: "/create-airdrop",
-      },
-      {
-        name: "Airdrop List",
-        link: "/airdrop-list",
-      },
-    ],
+    link: "/air-drop",
   },
   {
     name: "Token",
@@ -83,7 +61,7 @@ function MainNavigation() {
   const mainNavClass = "flex flex-col w-full h-full lg:bg-[#1A1D1F]";
 
   const navItemClass =
-    "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition flex-1";
+    "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition";
   const navItemNormalClass =
     "text-[#6F767E] hover:bg-[#272B30]/20 hover:text-green-500";
   const navItemActiveClass =
@@ -111,7 +89,7 @@ function MainNavigation() {
                   key={idx}
                   href={item.link}
                 >
-                  <span className="inline-flex items-center justify-center w-6 h-6 mr-3">
+                  <span className="inline-flex items-center justify-center w-8 mr-3">
                     <i className={`${item.icon} text-lg`}></i>
                   </span>
                   <span className="whitespace-nowrap mr-4">{item.name}</span>
@@ -123,18 +101,12 @@ function MainNavigation() {
             )}
             {item.subMenu && (
               <li>
-                <details
-                  open={
-                    item.subMenu.find(
-                      (element) => element.link === pageView.pathname
-                    ) !== undefined
-                  }
-                >
+                <details>
                   <summary
                     className={`grid items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition ${navItemNormalClass}`}
                   >
                     <div>
-                      <span className="inline-flex items-center justify-center w-6 h-6 mr-5">
+                      <span className="inline-flex items-center justify-center w-8 mr-3">
                         <i className={`${item.icon} text-lg`}></i>
                       </span>
                       <span className="whitespace-nowrap mr-4">

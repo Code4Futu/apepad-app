@@ -20,6 +20,7 @@ function WalletConnectBtn() {
         type="button"
         className="btn btn-md px-3 border-green-500 bg-green-500 hover:border-green-500 hover:bg-green-500 text-[#111315] text-xs md:text-sm"
       >
+        <i className="fa-duotone fa-wallet mr-3 text-base"></i>
         <span className="text-xs md:text-sm">{truncatedAddress}</span>
       </button>
     );
@@ -31,6 +32,7 @@ function WalletConnectBtn() {
         type="button"
         className="btn btn-md px-3 border-green-500 bg-green-500 hover:border-green-500 hover:bg-green-500 text-[#111315] text-xs md:text-sm"
       >
+        <i className="fa-duotone fa-wallet mr-3 text-base"></i>
         <span className="text-xs md:text-sm">Connecting</span>
       </button>
     );
@@ -75,6 +77,7 @@ const WalletView = ({ wallet }: { wallet: Wallet }) => {
           key={wallet.name}
           onClick={() => onWalletConnectRequest(wallet.name)}
         >
+          <i className="fa-duotone fa-wallet mr-3 text-base"></i>
           <span className="text-xs md:text-sm">Connect wallet</span>
         </button>
       );
@@ -86,6 +89,7 @@ const WalletView = ({ wallet }: { wallet: Wallet }) => {
         key={wallet.name}
         className="btn btn-md px-3 border-green-500 bg-green-500 hover:border-green-500 hover:bg-green-500 text-[#111315] text-xs md:text-sm"
       >
+        <i className="fa-duotone fa-wallet mr-3 text-base"></i>
         <span className="text-xs md:text-sm">
           Connect wallet - Desktop Only
         </span>
@@ -104,6 +108,7 @@ const WalletView = ({ wallet }: { wallet: Wallet }) => {
         key={wallet.name}
         onClick={() => onWalletConnectRequest(wallet.name)}
       >
+        <i className="fa-duotone fa-wallet mr-3 text-base"></i>
         <span className="text-xs md:text-sm">Connect wallet</span>
       </button>
     );

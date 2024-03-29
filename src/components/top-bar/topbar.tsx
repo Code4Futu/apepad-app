@@ -7,11 +7,11 @@ const topbarClass =
 function TopBar() {
   return (
     <div className={topbarClass}>
-      <span className="text-[13px] font-semibold leading-[16px] whitespace-nowrap w-[72px]">
-        🔥Trending
-      </span>
-      <div className="relative flex overflow-x-hidden max-w-[calc(100vw-96px)] md:max-w-[calc(100vw-152px)] lg:max-w-[calc(100vw-440px)]">
+      <div className="relative flex overflow-x-hidden max-w-[calc(100vw-24px)] md:max-w-[calc(100vw-80px)] lg:max-w-[calc(100vw-368px)]">
         <div className="animate-marquee whitespace-nowrap">
+          <span className="mx-6 text-[13px] font-semibold leading-[16px]">
+            🔥Trending
+          </span>
           {topTokenMockup.map((item, idx) => (
             <span
               key={item.code}
@@ -76,21 +76,6 @@ const topTokenMockup = [
     label: "SOL",
     code: "sol",
     rank: 10,
-  },
-  {
-    label: "ADA",
-    code: "ada",
-    rank: 11,
-  },
-  {
-    label: "WIF",
-    code: "wif",
-    rank: 12,
-  },
-  {
-    label: "BKS",
-    code: "bks",
-    rank: 13,
   },
 ];
 

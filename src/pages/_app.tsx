@@ -23,17 +23,17 @@ export const SEO: DefaultSeoProps = {
   titleTemplate: "Launchpad Aptos",
   defaultTitle: "Launchpad Aptos",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde eum quis, explicabo incidunt, facilis consequatur illum repellat, aperiam consequuntur totam magni enim minus excepturi voluptatibus quia voluptatem eius ipsa.", // TODO: Update later
+    "Earn ETH rewards by holding $LOOT. Burn $LOOT for xLOOT, unlocking higher rewards. Monitor looting status and more, all in one place.", // TODO: Update later
   twitter: {
     cardType: "summary_large_image",
-    handle: "@launchpad",
-    site: "@launchpad",
+    handle: "@loot",
+    site: "@loot",
   },
   openGraph: {
     title: "Launchpad Aptos",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde eum quis, explicabo incidunt, facilis consequatur illum repellat, aperiam consequuntur totam magni enim minus excepturi voluptatibus quia voluptatem eius ipsa.", // TODO: Update later
-    images: [{ url: "/public/svg/duge-banner.svg" }],
+      "Earn ETH rewards by holding $LOOT. Burn $LOOT for xLOOT, unlocking higher rewards. Monitor looting status and more, all in one place.", // TODO: Update later
+    images: [{ url: "/public/images/banner.png" }],
   },
 };
 
@@ -89,8 +89,8 @@ export default function App({ Component, pageProps }: AppProps) {
           // onLoad="this.media='all'"
           key="google-fonts-preconnect"
         />
-        <meta name="twitter:image" content="/public/svg/duge-banner.svg" />
-        <meta name="twitter:image:src" content="/public/svg/duge-banner.svg" />
+        <meta name="twitter:image" content="/public/images/banner.png" />
+        <meta name="twitter:image:src" content="/public/images/banner.png" />
       </Head>
       <DefaultSeo {...SEO} />
 
