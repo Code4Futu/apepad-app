@@ -21,7 +21,7 @@ function Header() {
           </Screen>
 
           <Screen from={"lg"}>
-            <label className="input border-none h-10 w-[360px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"

@@ -5,7 +5,7 @@ import {
 } from "@/constants/fairlaunch";
 import { useForm, Form } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
-import InputHeader from "../../InputHeader";
+import InputHeader from "@/components/inputs/InputHeader";
 import { useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 
@@ -76,7 +76,7 @@ function CreatePoolForm() {
         <div className={formStyle}>
           <InputHeader label="Total Selling Amount" />
           <div className="flex items-start gap-3 self-stretch">
-            <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
               <input
                 type="text"
                 className="grow bg-transparent focus-visible:outline-none"
@@ -112,7 +112,7 @@ function CreatePoolForm() {
         <div className={formStyle}>
           <InputHeader label="SoftCap (USDT)" />
           <div className="flex items-start gap-3 self-stretch">
-            <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
               <input
                 type="text"
                 className="grow bg-transparent focus-visible:outline-none"
@@ -125,8 +125,8 @@ function CreatePoolForm() {
         {/* Min/Max Contribution */}
         <div className={formStyle}>
           <InputHeader label="Min/Max Contribution" />
-          <div className="flex flex-col items-start gap-3">
-            <div className="flex max-w-[360px] items-center gap-[13px]">
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <div className="flex w-full md:w-[360px] xl:w-[411px] items-center gap-[13px]">
               <label className="cursor-pointer label flex gap-3">
                 <input
                   type="checkbox"
@@ -137,7 +137,7 @@ function CreatePoolForm() {
                   className="checkbox checkbox-success border-[rgba(111,118,126,0.40)]"
                 />
               </label>
-              <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
                 <input
                   type="text"
                   className="grow bg-transparent focus-visible:outline-none"
@@ -146,8 +146,8 @@ function CreatePoolForm() {
               </label>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-3">
-            <div className="flex max-w-[360px] items-center gap-[13px]">
+          <div className="flex flex-col items-start gap-3 self-stretch">
+            <div className="flex w-full md:w-[360px] xl:w-[411px] items-center gap-[13px]">
               <label className="cursor-pointer label flex gap-3">
                 <input
                   type="checkbox"
@@ -158,7 +158,7 @@ function CreatePoolForm() {
                   className="checkbox checkbox-success border-[rgba(111,118,126,0.40)]"
                 />
               </label>
-              <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
                 <input
                   type="text"
                   className="grow bg-transparent focus-visible:outline-none"
@@ -170,10 +170,10 @@ function CreatePoolForm() {
         </div>
 
         {/* Router and Liquidity Percent */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Router" />
-            <select className="select w-[360px] bg-[#272B30] rounded-xl text-[#9A9FA5]">
+            <select className="select w-full md:w-[360px] xl:w-[411px] bg-[#272B30] rounded-xl text-[#9A9FA5]">
               <option disabled selected>
                 Select Router
               </option>
@@ -182,7 +182,7 @@ function CreatePoolForm() {
           <div className={formStyle}>
             <InputHeader label="Liquidity Percent (%)" />
             <div className="flex items-start gap-3 self-stretch">
-              <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
                 <input
                   type="text"
                   className="grow bg-transparent focus-visible:outline-none"
@@ -194,12 +194,12 @@ function CreatePoolForm() {
         </div>
 
         {/* Start and end time */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Router" />
-            <div className="flex items-start gap-3 self-stretch">
+            <div className="flex items-start gap-3 self-stretch md:w-[360px] xl:w-[411px]">
               <Datepicker
-                inputClassName="w-[360px] rounded-xl py-2 px-3 h-[40px] font-normal bg-[#272B30] dark:bg-[#272B30] dark:placeholder:text-[#9A9FA5]"
+                inputClassName="w-full rounded-xl py-2 px-3 h-[40px] font-normal bg-[#272B30] dark:bg-[#272B30] dark:placeholder:text-[#9A9FA5]"
                 asSingle={true}
                 value={time}
                 onChange={handleValueChange}
@@ -209,9 +209,9 @@ function CreatePoolForm() {
           </div>
           <div className={formStyle}>
             <InputHeader label="Liquidity Percent (%)" />
-            <div className="flex items-start gap-3 self-stretch">
+            <div className="flex items-start gap-3 self-stretch md:w-[360px] xl:w-[411px]">
               <Datepicker
-                inputClassName="w-[360px] rounded-xl py-2 px-3 h-[40px] font-normal bg-[#272B30] dark:bg-[#272B30] dark:placeholder:text-[#9A9FA5]"
+                inputClassName="w-full rounded-xl py-2 px-3 h-[40px] font-normal bg-[#272B30] dark:bg-[#272B30] dark:placeholder:text-[#9A9FA5]"
                 asSingle={true}
                 value={time}
                 onChange={handleValueChange}
@@ -222,12 +222,12 @@ function CreatePoolForm() {
         </div>
 
         {/* Liquidity lockup time */}
-        <div className="flex flex-col items-start gap-3">
+        <div className="flex flex-col items-start gap-3 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Liquidity lockup time (Days)" />
-            <div className="flex items-start gap-3 self-stretch">
+            <div className="flex items-start gap-3 self-stretch md:w-[360px] xl:w-[411px]">
               <Datepicker
-                inputClassName="w-[360px] rounded-xl py-2 px-3 h-[40px] font-normal bg-[#272B30] dark:bg-[#272B30] dark:placeholder:text-[#9A9FA5]"
+                inputClassName="w-full rounded-xl py-2 px-3 h-[40px] font-normal bg-[#272B30] dark:bg-[#272B30] dark:placeholder:text-[#9A9FA5]"
                 asSingle={true}
                 value={time}
                 onChange={handleValueChange}

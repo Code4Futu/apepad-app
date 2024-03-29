@@ -5,7 +5,7 @@ import {
 } from "@/constants/fairlaunch";
 import { useForm, Form } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
-import InputHeader from "../../InputHeader";
+import InputHeader from "@/components/inputs/InputHeader";
 
 const btnStyle =
   "btn btn-md py-2 px-5 btn-outline border-[#272B30] bg-[#1A1D1F] text-white hover:bg-[#1A1D1F] hover:text-white rounded-xl z-[1] relative";
@@ -58,7 +58,7 @@ function CreateTokenForm() {
         <div className={formStyle}>
           <InputHeader label="Token address" />
           <div className="flex items-start gap-3 self-stretch">
-            <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
               <input
                 type="text"
                 className="grow bg-transparent focus-visible:outline-none"
@@ -161,7 +161,7 @@ function CreateTokenForm() {
                 Enable
               </span>
             </label>
-            <label className="input border-none h-10 w-[360px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
               <input
                 type="text"
                 className="grow bg-transparent focus-visible:outline-none"

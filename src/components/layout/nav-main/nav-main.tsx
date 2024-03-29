@@ -125,7 +125,13 @@ function MainNavigation() {
             )}
             {item.subMenu && (
               <li>
-                <details>
+                <details
+                  open={
+                    item.subMenu.find(
+                      (element) => element.link === pageView.pathname
+                    ) !== undefined
+                  }
+                >
                   <summary
                     className={`grid items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition ${navItemNormalClass}`}
                   >

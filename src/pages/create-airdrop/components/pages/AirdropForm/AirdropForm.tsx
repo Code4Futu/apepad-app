@@ -13,12 +13,26 @@ interface ISocialFormProps {
   setIsFormDone: (value: boolean) => void;
 }
 
-function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
+function AirdropForm({ setIsFormDone }: ISocialFormProps) {
   const { register, watch, setValue, getValues } = useForm();
 
   return (
     <div className="flex flex-col items-start gap-12 flex-1">
       <form className="flex flex-col items-start gap-8 self-stretch">
+        {/* Airdrop Title */}
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
+          <div className={formStyle}>
+            <InputHeader label="Airdrop Title (optional)" />
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <input
+                type="text"
+                className="grow bg-transparent focus-visible:outline-none"
+                placeholder="Your air..."
+              />
+            </label>
+          </div>
+        </div>
+
         {/* Logo images */}
         <div className={formStyle}>
           <InputHeader label="Logo images" />
@@ -69,15 +83,13 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
           </div>
           <div className={formStyle}>
             <InputHeader label="Twitter" />
-            <div className="flex items-start gap-3 self-stretch">
-              <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
-                <input
-                  type="text"
-                  className="grow bg-transparent focus-visible:outline-none"
-                  placeholder="https://twitter.com"
-                />
-              </label>
-            </div>
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <input
+                type="text"
+                className="grow bg-transparent focus-visible:outline-none"
+                placeholder="https://twitter.com"
+              />
+            </label>
           </div>
         </div>
 
@@ -95,15 +107,13 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
           </div>
           <div className={formStyle}>
             <InputHeader label="Telegram" />
-            <div className="flex items-start gap-3 self-stretch">
-              <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
-                <input
-                  type="text"
-                  className="grow bg-transparent focus-visible:outline-none"
-                  placeholder="https://t.me..."
-                />
-              </label>
-            </div>
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <input
+                type="text"
+                className="grow bg-transparent focus-visible:outline-none"
+                placeholder="https://t.me..."
+              />
+            </label>
           </div>
         </div>
 
@@ -121,15 +131,13 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
           </div>
           <div className={formStyle}>
             <InputHeader label="Instagram" />
-            <div className="flex items-start gap-3 self-stretch">
-              <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
-                <input
-                  type="text"
-                  className="grow bg-transparent focus-visible:outline-none"
-                  placeholder="https://instagram.com/..."
-                />
-              </label>
-            </div>
+            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2 self-stretch">
+              <input
+                type="text"
+                className="grow bg-transparent focus-visible:outline-none w-full"
+                placeholder="https://instagram.com/..."
+              />
+            </label>
           </div>
         </div>
 
@@ -156,7 +164,10 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
         </div>
 
         <div className="flex items-start gap-6">
-          <button className="dropdown dropdown-bottom dropdown-end flex-shrink-0 mt-4">
+          <button
+            className="dropdown dropdown-bottom dropdown-end flex-shrink-0 mt-4"
+            onClick={() => setIsFormDone(false)}
+          >
             <div className="flex items-center relative overflow-hidden rounded-box">
               <label
                 className={twMerge(
@@ -179,7 +190,7 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
                   "bg-[#90E788] text-[#111315] hover:text-[#111315] hover:bg-[#90E788] hover:border-[#90E788]"
                 )}
               >
-                <span className="text-[15px] font-bold">Preview</span>
+                <span className="text-[15px] font-bold">Create Airdrop</span>
               </label>
             </div>
           </button>
@@ -189,4 +200,4 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
   );
 }
 
-export default CreateSocialForm;
+export default AirdropForm;

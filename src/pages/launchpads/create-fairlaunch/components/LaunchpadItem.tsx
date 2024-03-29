@@ -63,7 +63,7 @@ export default function LaunchpadItem() {
   //   );
 
   return (
-    <div className="flex flex-col items-start p-6 gap-3 flex-1 rounded-[20px] border-[1px] border-[#272B30] md:max-w-[308px]">
+    <div className="flex flex-col items-start p-6 gap-3 flex-1 rounded-[20px] border-[1px] border-[#272B30] xl:max-w-[308px]">
       <div className="flex items-start gap-[10px] self-stretch">
         <div className="relative flex w-[72px] h-[72px] justify-center items-center rounded-xl bg-[#FFE8B6] overflow-hidden">
           <Image src="/svg/duge.svg" alt="" fill />
