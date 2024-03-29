@@ -1,8 +1,7 @@
 import { useForm, Form } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
 import InputHeader from "../../InputHeader";
-import TextEditor from "../../TextEditor";
-import dynamic from "next/dynamic";
+import { RichEditor } from "@/components/rich-editor";
 
 const btnStyle =
   "btn btn-md py-2 px-5 btn-outline border-[#272B30] bg-[#1A1D1F] text-white hover:bg-[#1A1D1F] hover:text-white rounded-xl z-[1] relative";
@@ -10,9 +9,12 @@ const formStyle = "flex flex-col items-start gap-3 self-stretch";
 const imageUploaderStyle =
   "flex gap-2 items-center justify-center py-3 px-5 rounded-xl border-2 border-[#272B30] bg-[#1A1D1F] shadow-[inset_0_2px_4px_0_#31353B,0_4px_4px_0_rgba(0,0,0,0.25),0_12px_13px_-6px_rgba(0,0,0,0.04)]";
 
-function CreateSocialForm() {
+interface ISocialFormProps {
+  setIsFormDone: (value: boolean) => void;
+}
+
+function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
   const { register, watch, setValue, getValues } = useForm();
-  const TextEditor = dynamic(() => import("../../TextEditor"), { ssr: false });
 
   return (
     <div className="flex flex-col items-start gap-12 flex-1">
@@ -149,10 +151,7 @@ function CreateSocialForm() {
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <div className={formStyle}>
             <InputHeader label="Description" />
-            <TextEditor
-              value={"Description"}
-              onChange={(v: any) => console.log(v)}
-            />
+            <RichEditor />
           </div>
         </div>
 
@@ -169,7 +168,10 @@ function CreateSocialForm() {
               </label>
             </div>
           </button>
-          <button className="dropdown dropdown-bottom dropdown-end flex-shrink-0 mt-4">
+          <button
+            onClick={() => setIsFormDone(true)}
+            className="dropdown dropdown-bottom dropdown-end flex-shrink-0 mt-4"
+          >
             <div className="flex items-center relative overflow-hidden rounded-box">
               <label
                 className={twMerge(

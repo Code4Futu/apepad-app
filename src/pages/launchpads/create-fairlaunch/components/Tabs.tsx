@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 interface IFairlaunchTabProps {
   tab: string;
   setTab: (tab: string) => void;
+  setIsFormDone: (value: boolean) => void;
 }
 
 const fairlaunchTabs = [
@@ -23,7 +24,7 @@ const fairlaunchTabs = [
 const tabStyle =
   "btn btn-md py-2 px-4 btn-outline border-[#1A1D1F] bg-[#1A1D1F] text-[#6F767E] hover:border-[#272B30] hover:bg-[#272B30] hover:text-[#FCFCFC] z-[1] relative";
 
-function FairlaunchTabs({ tab, setTab }: IFairlaunchTabProps) {
+function FairlaunchTabs({ tab, setTab, setIsFormDone }: IFairlaunchTabProps) {
   return (
     <div className="flex items-start gap-2">
       {fairlaunchTabs.map((item, idx) => (
@@ -38,7 +39,10 @@ function FairlaunchTabs({ tab, setTab }: IFairlaunchTabProps) {
                 tabStyle,
                 tab === item.name && "bg-[#272B30] text-[#FCFCFC]"
               )}
-              onClick={() => setTab(item.name)}
+              onClick={() => {
+                setTab(item.name);
+                setIsFormDone(false);
+              }}
             >
               <div
                 className={twMerge(

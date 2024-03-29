@@ -65,3 +65,8 @@
 .ck.ck-editor__main > .ck-editor__editable {
   background: #111315 !important;
 }
+
+.steps .step-success:after {
+  color: #90e788;
+  background: #90e788;
+}
