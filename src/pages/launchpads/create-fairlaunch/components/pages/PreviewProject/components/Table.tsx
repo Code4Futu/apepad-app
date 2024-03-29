@@ -27,19 +27,59 @@ interface Affiliate {
   rewardPercent: number;
 }
 
-export const Table = ({ data }: { data: Token | PoolInfo | Affiliate }) => {
-  const propertyKeys = Object.keys(data);
-  const propertyValues = Object.values(data);
-  console.log(propertyKeys, propertyValues);
+const tokenData = {
+  address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
+  name: "Googly Cat",
+  symbol: "GOOGLY",
+  totalSupply: "100,000,000",
+};
+
+const poolData = {
+  address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
+  presale: "42,000,000 GOOGLY",
+  liquidity: "23,940,000 GOOGLY",
+  marketCap: "$63,055.8569",
+  start: "2024.03.24 16:00 (UTC)",
+  end: "2024.03.28 18:00 (UTC)",
+  listingOn: "Pancakeswap",
+  liquidityPercent: 60,
+  lockupTime: "365 days after pool ends",
+};
+
+const affiliateData = {
+  link: "https://beta.pinksale.finance...ee9291B37A43be59c1",
+  yourReward: 0,
+  referralCount: 14,
+  rewardPercent: 5,
+};
+
+const Table = ({
+  data,
+  type,
+}: {
+  data: Token | PoolInfo | Affiliate;
+  type: string;
+}) => {
+  const propertyKeys =
+    type === "token"
+      ? Object.keys(data || tokenData)
+      : type === "pool"
+      ? Object.keys(data || poolData)
+      : Object.keys(data || affiliateData);
+  const propertyValues =
+    type === "token"
+      ? Object.values(data || tokenData)
+      : type === "pool"
+      ? Object.values(data || poolData)
+      : Object.values(data || affiliateData);
 
   /* Uppercase first letter from object key */
   const capitalized = (word: string) =>
-    word.charAt(0).toUpperCase() + word.slice(1);
+    word && word.charAt(0).toUpperCase() + word.slice(1);
   /* Truncate address for mobile */
   const truncatedAddress = (address: string) =>
-    `${address.slice(0, 6)}...${address.slice(-4)}`;
+    address && `${address.slice(0, 6)}...${address.slice(-4)}`;
 
-  console.log(truncatedAddress(propertyValues[0]));
   if (propertyKeys.length === 0) return;
 
   return (
@@ -65,7 +105,7 @@ export const Table = ({ data }: { data: Token | PoolInfo | Affiliate }) => {
             >
               <span className="hidden md:flex">{propertyValues[idx]}</span>
               <span className="md:hidden">
-                {truncatedAddress(propertyValues[0])}
+                {truncatedAddress(propertyValues[0] || "")}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,3 +142,5 @@ export const Table = ({ data }: { data: Token | PoolInfo | Affiliate }) => {
     </div>
   );
 };
+
+export default Table;

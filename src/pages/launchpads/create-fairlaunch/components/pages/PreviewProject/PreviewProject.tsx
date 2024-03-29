@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import FieldHeader from "./components/FieldHeader";
+import Table from "./components/Table";
 import { StatusComponent } from "@/components/status/StatusComponent";
-import { FieldHeader } from "./components/FieldHeader";
-import { Table } from "./components/Table";
 import { useEffect, useState } from "react";
 import { timeDiff } from "@/utils/time/utils";
 import { twMerge } from "tailwind-merge";
@@ -39,6 +39,32 @@ const info = [
 
 const btnStyle =
   "btn btn-md py-2 px-5 btn-outline border-[#272B30] bg-[#1A1D1F] text-white hover:bg-[#1A1D1F] hover:text-white rounded-lg z-[1] relative";
+
+const tokenData = {
+  address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
+  name: "Googly Cat",
+  symbol: "GOOGLY",
+  totalSupply: "100,000,000",
+};
+
+const poolData = {
+  address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
+  presale: "42,000,000 GOOGLY",
+  liquidity: "23,940,000 GOOGLY",
+  marketCap: "$63,055.8569",
+  start: "2024.03.24 16:00 (UTC)",
+  end: "2024.03.28 18:00 (UTC)",
+  listingOn: "Pancakeswap",
+  liquidityPercent: 60,
+  lockupTime: "365 days after pool ends",
+};
+
+const affiliateData = {
+  link: "https://beta.pinksale.finance...ee9291B37A43be59c1",
+  yourReward: 0,
+  referralCount: 14,
+  rewardPercent: 5,
+};
 
 function PreviewProject() {
   const [timeStartDiff, setTimeStartDiff] = useState<{
@@ -169,37 +195,11 @@ function PreviewProject() {
             }}
           />
           <FieldHeader title="Token" />
-          <Table
-            data={{
-              address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
-              name: "Googly Cat",
-              symbol: "GOOGLY",
-              totalSupply: "100,000,000",
-            }}
-          />
+          <Table type="token" data={tokenData} />
           <FieldHeader title="Pool Info" />
-          <Table
-            data={{
-              address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
-              presale: "42,000,000 GOOGLY",
-              liquidity: "23,940,000 GOOGLY",
-              marketCap: "$63,055.8569",
-              start: "2024.03.24 16:00 (UTC)",
-              end: "2024.03.28 18:00 (UTC)",
-              listingOn: "Pancakeswap",
-              liquidityPercent: 60,
-              lockupTime: "365 days after pool ends",
-            }}
-          />
+          <Table type="pool" data={poolData} />
           <FieldHeader title="Affiliate Program" />
-          <Table
-            data={{
-              link: "https://beta.pinksale.finance...ee9291B37A43be59c1",
-              yourReward: 0,
-              referralCount: 14,
-              rewardPercent: 5,
-            }}
-          />
+          <Table type="affiliate" data={affiliateData} />
         </div>
       </div>
       <div className="flex flex-col items-start gap-2.5 w-full max-h-[957px] self-stretch">
