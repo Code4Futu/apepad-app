@@ -11,9 +11,9 @@ const Main: React.FC = (props) => {
   const [isFormDone, setIsFormDone] = useState<boolean>(false);
 
   return (
-    <div className="fadein w-full mx-auto text-sm mt-6 space-y-4 md:space-y-6">
+    <div className="fadein w-full mx-auto text-sm my-6 space-y-4 md:space-y-6">
       <div className="grid grid-cols-1 gap-4 md:gap-6">
-        <span className="text-[32px] md:text-[40px] font-semibold text-[#FCFCFC] leading-[48px]">
+        <span className="text-[32px] font-semibold text-[#FCFCFC] leading-[32px]">
           Create Fairlaunch
         </span>
         <FairlaunchTabs

@@ -11,8 +11,8 @@ const Main: React.FC = (props) => {
   const aptos = getAptosClient();
 
   return (
-    <div className="fadein w-full mx-auto text-sm mt-6 space-y-4 md:space-y-6">
-      <div className="grid grid-cols-1 gap-4 md:gap-6">
+    <div className="fadein w-full mx-auto text-sm my-6 space-y-4 md:space-y-6">
+      <div className="grid grid-cols-1 gap-4 md:gap-6 px-4 md:px-6">
         <span className="text-[32px] md:text-[40px] font-semibold text-[#FCFCFC] leading-[48px]">
           All Launchpads
         </span>
@@ -24,7 +24,7 @@ const Main: React.FC = (props) => {
           view={view}
           setView={setView}
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           <LaunchpadItem />
           <LaunchpadItem />
           <LaunchpadItem />
