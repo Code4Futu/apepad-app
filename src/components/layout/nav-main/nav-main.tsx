@@ -31,7 +31,6 @@ const navItem = [
   {
     name: "Lock",
     icon: "fa-solid fa-lock",
-    link: "/lock",
     subMenu: [
       {
         name: "Create",
@@ -50,7 +49,6 @@ const navItem = [
   {
     name: "Airdrop",
     icon: "fa-solid fa-gift",
-    link: "/air-drop",
     subMenu: [
       {
         name: "Create Airdrop",
