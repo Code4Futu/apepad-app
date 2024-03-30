@@ -89,8 +89,18 @@ export default function App({ Component, pageProps }: AppProps) {
           // onLoad="this.media='all'"
           key="google-fonts-preconnect"
         />
-        <meta name="twitter:image" content="/public/svg/duge-banner.svg" />
-        <meta name="twitter:image:src" content="/public/svg/duge-banner.svg" />
+        <meta
+          name="twitter:image"
+          content="https://opengraph.b-cdn.net/production/documents/4190877d-3828-4e78-bdc2-7f2a1833821e.svg?token=hEp46pp32VpQm-tuWDjUWQ6pN-GvCy93wMvqZs6ETao&height=369&width=624&expires=33247785975"
+        />
+        <meta
+          name="twitter:image:src"
+          content="https://opengraph.b-cdn.net/production/documents/4190877d-3828-4e78-bdc2-7f2a1833821e.svg?token=hEp46pp32VpQm-tuWDjUWQ6pN-GvCy93wMvqZs6ETao&height=369&width=624&expires=33247785975"
+        />
+        <meta
+          property="og:image"
+          content="https://opengraph.b-cdn.net/production/documents/4190877d-3828-4e78-bdc2-7f2a1833821e.svg?token=hEp46pp32VpQm-tuWDjUWQ6pN-GvCy93wMvqZs6ETao&height=369&width=624&expires=33247785975"
+        />
       </Head>
       <DefaultSeo {...SEO} />
 
