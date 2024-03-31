@@ -10,7 +10,7 @@ function TopBar() {
       <span className="text-[13px] font-semibold leading-[16px] whitespace-nowrap w-[72px]">
         🔥Trending
       </span>
-      <div className="relative flex overflow-x-hidden max-w-[calc(100vw-96px)] md:max-w-[calc(100vw-152px)] lg:max-w-[calc(100vw-440px)]">
+      <div className="relative flex overflow-x-hidden max-w-[calc(100vw-96px)] md:max-w-[calc(100vw-152px)] lg:max-w-[calc(100vw-492px)]">
         <div className="animate-marquee whitespace-nowrap">
           {topTokenMockup.map((item, idx) => (
             <span

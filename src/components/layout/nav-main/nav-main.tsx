@@ -16,7 +16,8 @@ const navItem = [
     subMenu: [
       {
         name: "Create Presale",
-        link: "/presale",
+        link: "/launchpads/presale",
+        disable: true,
       },
       {
         name: "Create Fairlaunch",
@@ -24,7 +25,8 @@ const navItem = [
       },
       {
         name: "Create Subcription",
-        link: "/subcription",
+        link: "/launchpads/subcription",
+        disable: true,
       },
     ],
   },
@@ -39,10 +41,12 @@ const navItem = [
       {
         name: "Token",
         link: "/token-lock",
+        disable: true,
       },
       {
         name: "Liquidity",
         link: "/liquidity-lock",
+        disable: true,
       },
     ],
   },
@@ -57,6 +61,7 @@ const navItem = [
       {
         name: "Airdrop List",
         link: "/airdrop-list",
+        disable: true,
       },
     ],
   },
@@ -64,31 +69,34 @@ const navItem = [
     name: "Token",
     icon: "fa-solid fa-database",
     link: "/token",
+    disable: true,
   },
   {
     name: "Tool",
     icon: "fa-solid fa-wrench",
     link: "/tool",
+    disable: true,
   },
   {
     name: "Bridge",
     icon: "fa-solid fa-shuffle",
     link: "/bridge",
-    isSoon: false,
+    disable: true,
   },
 ];
 
+const mainNavClass = "flex flex-col w-full h-full lg:bg-[#1A1D1F]";
+const navItemClass =
+  "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition flex-1";
+const navItemNormalClass =
+  "text-[#6F767E] hover:bg-[#272B30]/20 hover:text-green-500";
+const navItemActiveClass =
+  "bg-[#272B30] shadow-[inset_0_-2px_1px_0_rgba(0,0,0,0.4),inset_0_1px_1px_0_rgba(255,255,255,0.11)] text-green-500 hover:bg-[#272B30]/20 hover:text-green-500";
+const commingSoonClass =
+  "inline-flex flex-col items-center justify-center rounded-md py-[3px] px-1 bg-[rgba(181,228,202,0.20)] text-[10px] text-[#B5E4CA] leading-[12px] font-semibold whitespace-nowrap";
+
 // Main Navigation
 function MainNavigation() {
-  const mainNavClass = "flex flex-col w-full h-full lg:bg-[#1A1D1F]";
-
-  const navItemClass =
-    "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition flex-1";
-  const navItemNormalClass =
-    "text-[#6F767E] hover:bg-[#272B30]/20 hover:text-green-500";
-  const navItemActiveClass =
-    "bg-[#272B30] shadow-[inset_0_-2px_1px_0_rgba(0,0,0,0.4),inset_0_1px_1px_0_rgba(255,255,255,0.11)] text-green-500 hover:bg-[#272B30]/20 hover:text-green-500";
-
   const pageView = useLocation();
   return (
     <nav className={mainNavClass}>
@@ -107,7 +115,7 @@ function MainNavigation() {
                     pageView.pathname === item.link
                       ? navItemActiveClass
                       : navItemNormalClass
-                  }`}
+                  } ${item.disable && "pointer-events-none"}`}
                   key={idx}
                   href={item.link}
                 >
@@ -115,8 +123,8 @@ function MainNavigation() {
                     <i className={`${item.icon} text-lg`}></i>
                   </span>
                   <span className="whitespace-nowrap mr-4">{item.name}</span>
-                  {item.isSoon && (
-                    <span className="badge badge-soon">Soon</span>
+                  {item.disable && (
+                    <span className={commingSoonClass}>Soon</span>
                   )}
                 </Link>
               </li>
@@ -140,27 +148,43 @@ function MainNavigation() {
                       <span className="whitespace-nowrap mr-4">
                         {item.name}
                       </span>
-                      {item.isSoon && (
-                        <span className="badge badge-soon">Soon</span>
+                      {item.disable && (
+                        <span className={commingSoonClass}>Soon</span>
                       )}
                     </div>
                   </summary>
                   <ul className="menu-dropdown">
                     {item.subMenu.map((item, idx) => (
                       <li key={idx}>
-                        <Link
-                          className={`${navItemClass} ${
-                            pageView.pathname === item.link
-                              ? navItemActiveClass
-                              : navItemNormalClass
-                          }`}
-                          key={idx}
-                          href={item.link}
-                        >
-                          <span className="whitespace-nowrap mr-4">
-                            {item.name}
-                          </span>
-                        </Link>
+                        {!item.disable ? (
+                          <Link
+                            className={`${navItemClass} ${
+                              pageView.pathname === item.link
+                                ? navItemActiveClass
+                                : navItemNormalClass
+                            }`}
+                            key={idx}
+                            href={item.link}
+                          >
+                            <span className="whitespace-nowrap mr-4">
+                              {item.name}
+                            </span>
+                          </Link>
+                        ) : (
+                          <div
+                            key={idx}
+                            className={`pointer-events-none	${navItemClass} ${
+                              pageView.pathname === item.link
+                                ? navItemActiveClass
+                                : navItemNormalClass
+                            }`}
+                          >
+                            <span className="whitespace-nowrap">
+                              {item.name}
+                            </span>
+                            <span className={commingSoonClass}>Soon</span>
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>
