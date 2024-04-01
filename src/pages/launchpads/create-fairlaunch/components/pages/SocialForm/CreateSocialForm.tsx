@@ -18,7 +18,7 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
 
   return (
     <div className="flex flex-col items-start gap-12 flex-1">
-      <form className="flex flex-col items-start gap-8 self-stretch">
+      <form className="flex flex-col items-start md:gap-6 gap-8 self-stretch">
         {/* Logo images */}
         <div className={formStyle}>
           <InputHeader label="Logo images" />
@@ -56,7 +56,7 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
         </div>
 
         {/* Website and Twitter */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Website" />
             <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
@@ -82,7 +82,7 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
         </div>
 
         {/* Discord and Telegram */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Discord" />
             <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
@@ -108,7 +108,7 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
         </div>
 
         {/* Facebook and Instagram */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Facebook" />
             <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
@@ -134,7 +134,7 @@ function CreateSocialForm({ setIsFormDone }: ISocialFormProps) {
         </div>
 
         {/* Youtube */}
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 self-stretch">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 self-stretch">
           <div className={formStyle}>
             <InputHeader label="Youtube" />
             <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">

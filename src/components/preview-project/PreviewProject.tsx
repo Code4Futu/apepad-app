@@ -6,6 +6,17 @@ import { StatusComponent } from "@/components/status/StatusComponent";
 import { useEffect, useState } from "react";
 import { timeDiff } from "@/utils/time/utils";
 import { twMerge } from "tailwind-merge";
+import Chart from "@/components/charts/DoughnutChart";
+import {
+  affiliateData,
+  frequentlyQuestion,
+  ILaunchpadItem,
+  poolData,
+  tokenData,
+} from "@/constants/launchpad";
+import { Disclosure } from "@headlessui/react";
+import { CloseIcon, OpenIcon } from "@/components/icons";
+import { Divider } from "@/components/common/Divider";
 
 const socialLink = [
   {
@@ -40,33 +51,7 @@ const info = [
 const btnStyle =
   "btn btn-md py-2 px-5 btn-outline border-[#272B30] bg-[#1A1D1F] text-white hover:bg-[#1A1D1F] hover:text-white rounded-lg z-[1] relative";
 
-const tokenData = {
-  address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
-  name: "Googly Cat",
-  symbol: "GOOGLY",
-  totalSupply: "100,000,000",
-};
-
-const poolData = {
-  address: "0x8a99feeFC8857e65bE8f098F22765b99113d43Ef",
-  presale: "42,000,000 GOOGLY",
-  liquidity: "23,940,000 GOOGLY",
-  marketCap: "$63,055.8569",
-  start: "2024.03.24 16:00 (UTC)",
-  end: "2024.03.28 18:00 (UTC)",
-  listingOn: "Pancakeswap",
-  liquidityPercent: 60,
-  lockupTime: "365 days after pool ends",
-};
-
-const affiliateData = {
-  link: "https://beta.pinksale.finance...ee9291B37A43be59c1",
-  yourReward: 0,
-  referralCount: 14,
-  rewardPercent: 5,
-};
-
-function PreviewProject() {
+function PreviewProject({ item }: { item: ILaunchpadItem }) {
   const [timeStartDiff, setTimeStartDiff] = useState<{
     d: number;
     h: number;
@@ -81,7 +66,7 @@ function PreviewProject() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const time = timeDiff(Date.now(), 1706187600 * 1000, 1712988827 * 1000);
+      const time = timeDiff(Date.now(), item?.start * 1000, item?.end * 1000);
       setTimeStartDiff(time);
     }, 1000);
 
@@ -144,77 +129,114 @@ function PreviewProject() {
       </div>
     </div>
   );
+
   return (
     <>
-      <div className="flex flex-col items-start p-4 md:p-6 gap-2 max-w-[672px] rounded-lg bg-[#1A1D1F] self-stretch">
-        <div className="flex flex-col items-start gap-5 self-stretch">
-          <div className="flex items-start gap-5 self-stretch">
-            <div className="relative w-[69px] h-[69px] rounded-lg overflow-hidden">
-              <Image src="/svg/duge.svg" alt="" fill />
-            </div>
-            <div className="flex flex-col items-start gap-1 flex-1">
-              <div className="flex items-center self-stretch gap-1">
-                <span className="text-xl font-medium text-[#FCFCFC] whitespace-nowrap">
-                  DUGE Fairlaunch
-                </span>
-                <div className="flex py-1 px-2 justify-center items-center gap-2.5 rounded-sm bg-[#FFBC99]">
-                  <span className="text-xs font-bold text-[#1A1D1F] whitespace-nowrap">
-                    Top #3
+      <div className="flex flex-col gap-2 items-start">
+        <div className="flex flex-col items-start p-6 gap-2 max-w-[672px] rounded-lg bg-[#1A1D1F] self-stretch">
+          <div className="flex flex-col items-start gap-5 self-stretch">
+            <div className="flex items-start gap-5 self-stretch">
+              <div className="relative w-[69px] h-[69px] rounded-lg overflow-hidden">
+                <Image src={item.icon} alt="" fill />
+              </div>
+              <div className="flex flex-col items-start gap-1 flex-1">
+                <div className="flex items-center self-stretch gap-1">
+                  <span className="text-xl font-medium text-[#FCFCFC] whitespace-nowrap">
+                    {item.name}
                   </span>
+                  <div className="flex py-1 px-2 justify-center items-center gap-2.5 rounded-sm bg-[#FFBC99]">
+                    <span className="text-xs font-bold text-[#1A1D1F] whitespace-nowrap">
+                      Top #{item.top}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  {socialLink.map((item, idx) => (
+                    <Link
+                      href={item.link}
+                      key={idx}
+                      className="flex p-1 w-5 h-5 rounded-[32px] items-center justify-center bg-[#272B30] text-white cursor-pointer"
+                    >
+                      <i className={item.icons}></i>
+                    </Link>
+                  ))}
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                {socialLink.map((item, idx) => (
-                  <Link
-                    href={item.link}
-                    key={idx}
-                    className="flex p-1 w-5 h-5 rounded-[32px] items-center justify-center bg-[#272B30] text-white cursor-pointer"
-                  >
-                    <i className={item.icons}></i>
-                  </Link>
-                ))}
+              <div className="flex items-end justify-end flex-1">
+                <StatusComponent status={item.status} />
               </div>
             </div>
-            <div className="flex items-end justify-end flex-1">
-              <StatusComponent status="Live" />
+            <div className="text-[15px] font-medium text-[#6F767E] self-stretch leading-[24px]">
+              Invest before 100 BNB raise to get 20% bonus tokens 100-150 BNB
+              15% bonus, 150-200 BNB 10% bonus tokens, Step aside, Dog and PEPE!
+              🙀 Googly Cat is hottest crypto in future, bringing the true
+              meaning of “phenomenon” to the digital realm. 🚀 CMC Fast track
+              paid 📣 🔵 CA Audited 🟢 CA KYCed 🟣 SAFU CA - Worldwide Hype ⚠️
+              No Team Tokens 🔒 Locked Liquidity 🛡 CA Renounced 💰 🛡️ Maximum
+              Security 🛡️ Big Marketing Plans 📢 💥 Ave#1 💥 Dexview #1 💥
+              Dextools #1 🤝
             </div>
+            <div
+              className="relative h-[360px] self-stretch rounded-xl"
+              style={{
+                background: `url('/svg/duge-banner.svg') lightgray 50% / cover no-repeat`,
+              }}
+            />
+            <FieldHeader title="Token" />
+            <Table type="token" data={tokenData} />
+            <FieldHeader title="Pool Info" />
+            <Table type="pool" data={poolData} />
           </div>
-          <div className="text-[15px] font-medium text-[#6F767E] self-stretch leading-[24px]">
-            Invest before 100 BNB raise to get 20% bonus tokens 100-150 BNB 15%
-            bonus, 150-200 BNB 10% bonus tokens, Step aside, Dog and PEPE! 🙀
-            Googly Cat is hottest crypto in future, bringing the true meaning of
-            “phenomenon” to the digital realm. 🚀 CMC Fast track paid 📣 🔵 CA
-            Audited 🟢 CA KYCed 🟣 SAFU CA - Worldwide Hype ⚠️ No Team Tokens 🔒
-            Locked Liquidity 🛡 CA Renounced 💰 🛡️ Maximum Security 🛡️ Big
-            Marketing Plans 📢 💥 Ave#1 💥 Dexview #1 💥 Dextools #1 🤝
-          </div>
-          <div
-            className="relative h-[360px] self-stretch rounded-xl"
-            style={{
-              background: `url('/svg/duge-banner.svg') lightgray 50% / cover no-repeat`,
-            }}
-          />
-          <FieldHeader title="Token" />
-          <Table type="token" data={tokenData} />
-          <FieldHeader title="Pool Info" />
-          <Table type="pool" data={poolData} />
+        </div>
+
+        <div className="flex flex-col items-start gap-3.5 rounded-lg bg-[#1A1D1F] p-4 md:p-6 self-stretch">
           <FieldHeader title="Affiliate Program" />
           <Table type="affiliate" data={affiliateData} />
         </div>
-      </div>
-      <div className="flex flex-col items-start gap-2.5 w-full max-h-[957px] self-stretch">
+
         <div className="flex flex-col items-start gap-3.5 rounded-lg bg-[#1A1D1F] p-4 md:p-6 self-stretch">
+          <FieldHeader title="Tokenomic" />
+          <Chart />
+        </div>
+
+        <div className="flex flex-col items-start gap-6 rounded-lg bg-[#1A1D1F] p-4 md:p-6 self-stretch">
+          <FieldHeader title="Frequently ask questions" />
+          {frequentlyQuestion.map((item, idx) => (
+            <Disclosure key={idx} as="div" className="self-stretch">
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className="flex w-full justify-between bg-transparent text-left text-[15px] font-semibold text-[#FCFCFC] focus:outline-none">
+                    <span>{item.label}</span>
+                    {open ? <CloseIcon /> : <OpenIcon />}
+                  </Disclosure.Button>
+                  <Divider
+                    className={`mt-3 ${
+                      idx === frequentlyQuestion.length - 1 && "hidden"
+                    }`}
+                  />
+                  <Disclosure.Panel className="pt-6 text-[15px] text-[#6F767E] font-medium">
+                    {item.description}
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex flex-col items-start gap-2.5 w-full max-h-[957px] max-w-[340px] self-stretch flex-1">
+        <div className="flex flex-col items-start gap-3.5 rounded-lg bg-[#1A1D1F] p-6 self-stretch">
           <div className="flex justify-center items-center text-sm text-white font-semibold self-stretch">
             Presale end in
           </div>
           <Countdown />
           <div className="flex flex-col items-start self-stretch gap-1">
             <span className="text-sm font-semibold leading-[24px] text-[#6F767E]">
-              Progress (0.00%)
+              Progress ({item.progress}%)
             </span>
             <progress
               className="progress progress-success !w-full self-stretch !h-[6px]"
-              value="40"
+              value={item.progress}
               max="100"
             ></progress>
             <div className="flex justify-between">
@@ -257,7 +279,7 @@ function PreviewProject() {
             </div>
           </button>
         </div>
-        <div className="flex flex-col items-start gap-3.5 rounded-lg bg-[#1A1D1F] p-4 md:p-6 self-stretch">
+        <div className="flex flex-col items-start gap-3.5 rounded-lg bg-[#1A1D1F] p-6 self-stretch">
           <ul className="steps steps-vertical">
             <li className="step step-success">
               <div className="flex flex-col items-start justify-center gap-0.5">
@@ -301,7 +323,7 @@ function PreviewProject() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col items-start rounded-lg bg-[#1A1D1F] p-4 md:p-6 self-stretch">
+        <div className="flex flex-col items-start rounded-lg bg-[#1A1D1F] p-6 self-stretch">
           {info.map((item, idx) => (
             <div
               key={idx}

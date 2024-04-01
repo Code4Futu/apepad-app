@@ -68,8 +68,12 @@ const navItem = [
   {
     name: "Token",
     icon: "fa-solid fa-database",
-    link: "/token",
-    disable: true,
+    subMenu: [
+      {
+        name: "Create Token",
+        link: "/create-token",
+      },
+    ],
   },
   {
     name: "Tool",
@@ -100,12 +104,12 @@ function MainNavigation() {
   const pageView = useLocation();
   return (
     <nav className={mainNavClass}>
-      <div className="mt-6 ml-6 mb-6">
+      <div className="mt-6 ml-6 mb-6 hidden md:block">
         <Logo />
       </div>
 
       {/* Main Nav */}
-      <ul className="menu flex flex-col gap-2 flex-1 p-4">
+      <ul className="menu flex flex-col gap-2 flex-1 p-4 max-md:shadow-[0_40px_64px_-12px_rgba(0,0,0,0.08),0_0_14px_-4px_rgba(0, 0, 0, 0.05),0_32px_48px_-8px_rgba(0,0,0,0.10)] max-md:!bg-[rgba(17,19,21,0.90)]">
         {navItem.map((item, idx) => (
           <div key={idx}>
             {!item.subMenu && (

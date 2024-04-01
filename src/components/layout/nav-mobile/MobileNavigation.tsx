@@ -53,8 +53,13 @@ export function MobileNavigation() {
           method="dialog"
           className="modal-box text-sm relative md:max-w-sm"
         >
+          <div className="modal-box--header">
+            <i className="fa-duotone fa-grid-2 mr-4"></i>
+            <span className="font-medium">Menu</span>
+          </div>
+
           <button
-            className="btn btn-sm btn-circle modal-box--close !top-[1.75rem]"
+            className="btn btn-sm btn-circle modal-box--close"
             onClick={toogleDialog}
           >
             ✕

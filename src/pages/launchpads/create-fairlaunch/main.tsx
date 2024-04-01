@@ -3,8 +3,11 @@ import FairlaunchTabs from "./components/Tabs";
 import CreateTokenForm from "./components/pages/TokenForm/CreateTokenForm";
 import CreatePoolForm from "./components/pages/PoolForm/CreatePoolForm";
 import CreateSocialForm from "./components/pages/SocialForm/CreateSocialForm";
-import PreviewProject from "./components/pages/PreviewProject/PreviewProject";
 import { twMerge } from "tailwind-merge";
+import Title from "@/components/common/Title";
+import PreviewProject from "@/components/preview-project/PreviewProject";
+import PreviewProjectMobile from "@/components/preview-project/PreviewProjectMobile";
+import { launchpadListMockup } from "@/constants/launchpad";
 
 const Main: React.FC = (props) => {
   const [tab, setTab] = useState<string>("token");
@@ -13,14 +16,18 @@ const Main: React.FC = (props) => {
   return (
     <div className="fadein w-full mx-auto text-sm my-6 space-y-4 md:space-y-6">
       <div className="grid grid-cols-1 gap-4 md:gap-6">
-        <span className="text-[32px] font-semibold text-[#FCFCFC] leading-[32px]">
-          Create Fairlaunch
-        </span>
-        <FairlaunchTabs
-          tab={tab}
-          setTab={setTab}
-          setIsFormDone={setIsFormDone}
-        />
+        {isFormDone ? (
+          <Title title="Preview" />
+        ) : (
+          <Title title="Create Fairlaunch" />
+        )}
+        {!isFormDone && (
+          <FairlaunchTabs
+            tab={tab}
+            setTab={setTab}
+            setIsFormDone={setIsFormDone}
+          />
+        )}
       </div>
       <div
         className={twMerge(
@@ -34,8 +41,11 @@ const Main: React.FC = (props) => {
           <CreateSocialForm setIsFormDone={setIsFormDone} />
         )}
       </div>
-      <div className="relative flex flex-col items-start gap-2 md:flex-row">
-        {isFormDone && <PreviewProject />}
+      <div className="flex md:hidden lg:flex xl:hidden relative flex flex-col gap-4 shrink-0 self-stretch">
+        {isFormDone && <PreviewProjectMobile item={launchpadListMockup[0]} />}
+      </div>
+      <div className="hidden md:flex lg:hidden xl:flex relative items-start gap-2">
+        {isFormDone && <PreviewProject item={launchpadListMockup[0]} />}
       </div>
     </div>
   );
