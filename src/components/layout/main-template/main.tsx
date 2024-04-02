@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Screen from "../../common/Responsive";
 
 import MainNavigation from "../nav-main/nav-main";
-import { MobileNavigation } from "../nav-mobile/MobileNavigation";
 
 export default function LayoutDefault({ children }: any) {
   return (
@@ -20,11 +19,6 @@ export default function LayoutDefault({ children }: any) {
             {/* // Sidebar */}
           </div>
         </Screen>
-        {/* Mobile Bottom Navigation */}
-        <Screen upto={"md"}>
-          <MobileNavigation />
-        </Screen>
-        {/* // Mobile Bottom Navigation */}
         {/* Content Area */}
         <div className={`flex-1 flex min-h-screen`}>{children}</div>
         {/* //Content Area */}

@@ -5,7 +5,7 @@ import { DefaultSeo, DefaultSeoProps } from "next-seo";
 import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
-import { WalletProvider } from "@/context/WalletProvider";
+import { Provider } from "@/context/WalletProvider";
 
 type NextPageWithLayout = NextPage & {
   Layout?: React.FC<React.PropsWithChildren<unknown>>;
@@ -104,7 +104,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <DefaultSeo {...SEO} />
 
-      <WalletProvider>
+      <Provider>
         <ToastContainer theme="dark" position="bottom-right" />
         {router.pathname.includes("concepts") ? (
           <Component {...pageProps} />
@@ -118,7 +118,7 @@ export default function App({ Component, pageProps }: AppProps) {
               {/* Main */}
               <div className="lg:h-full lg:flex-1">
                 <div className="flex flex-col justify-center items-center w-full">
-                  <div className="container-lg !px-0">
+                  <div className="container-lg !px-4">
                     <Component {...pageProps} />
                   </div>
                 </div>
@@ -127,7 +127,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </div>
           </LayoutDefault>
         )}
-      </WalletProvider>
+      </Provider>
     </>
   );
 }

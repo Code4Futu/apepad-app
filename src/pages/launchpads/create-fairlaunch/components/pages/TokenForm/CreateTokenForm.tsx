@@ -58,14 +58,14 @@ function CreateTokenForm() {
         <div className={formStyle}>
           <InputHeader label="Token address" />
           <div className="flex items-start gap-3 self-stretch">
-            <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-3 rounded-xl bg-[#272B30] flex items-center gap-2">
+            <label className="input border-none h-10 p-3 rounded-xl bg-[#272B30] flex items-center gap-2 w-full max-w-[175px] min-[420px]:max-w-full md:w-[360px] xl:w-[411px]">
               <input
                 type="text"
                 className="grow bg-transparent focus-visible:outline-none"
                 placeholder="Enter token address"
               />
             </label>
-            <div className="dropdown dropdown-bottom dropdown-end flex-shrink-0">
+            <div className="dropdown dropdown-bottom dropdown-end flex-1">
               <div className="flex items-center relative overflow-hidden rounded-box">
                 <label tabIndex={0} className={btnStyle}>
                   <span className="text-[15px] font-bold">Create Token</span>
@@ -200,7 +200,7 @@ function CreateTokenForm() {
                 "bg-[#90E788] text-[#111315] hover:text-[#111315] hover:bg-[#90E788] hover:border-[#90E788]"
               )}
             >
-              <span className="text-[15px] font-bold">Create Token</span>
+              <span className="text-[15px] font-bold">Next</span>
             </label>
           </div>
         </button>

@@ -1,39 +1,98 @@
 import Logo from "@/components/core/logo/logo";
 import WalletConnectBtn from "@/components/wallet-connect-btn/wallet-connect-btn";
-import React from "react";
+import React, { useState } from "react";
 import Screen from "../../common/Responsive";
+import MainNavigation from "../nav-main/nav-main";
+import { SearchIcon } from "@/components/icons";
 
 // ClassName
 const headerClass =
-  "sticky flex flex-col justify-start flex-shrink-0 top-0 left-0 right-0 w-full z-40 py-3 md:py-6 bg-[#1A1D1F] shadow-[inset_1px_0_0_0_#111315]";
+  "sticky flex flex-col justify-start flex-shrink-0 top-0 left-0 right-0 w-full z-40 py-6 px-6 md:px-10 bg-[#1A1D1F] shadow-[inset_1px_0_0_0_#111315]";
 
 function Header() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const toogleDialog = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
   return (
     <>
+      <dialog
+        id="mobileMenu_modal"
+        className={`${
+          isDialogOpen ? "fixed z-20" : "hidden z-0"
+        } modal modal-top mt-[164px]`}
+        open={isDialogOpen}
+        onClose={toogleDialog}
+      >
+        <form method="dialog" className="modal-box text-sm relative">
+          <div className="w-full px-6">
+            <label className="input border-none h-12 w-full p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
+              <SearchIcon />
+              <input
+                type="text"
+                className="grow bg-transparent focus-visible:outline-none"
+                placeholder="Type token symbol, address"
+              />
+            </label>
+          </div>
+          <div className="modal-box--body !py-2 !px-2">
+            <MainNavigation />
+          </div>
+        </form>
+      </dialog>
+
       <div id={"header"} className={headerClass}>
         <div
           className={
-            "container-lg !max-w-none flex justify-between items-center self-stretch !mx-0 md:!px-10"
+            "container-lg !max-w-none flex justify-between items-center self-stretch !px-0"
           }
         >
           <Screen upto={"md"}>
-            <Logo />
+            <div
+              className="flex p-3 items-start gap-[10px]"
+              onClick={toogleDialog}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                className={isDialogOpen ? "hidden" : "block"}
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M4 16C4 15.4477 4.44772 15 5 15H19C19.5523 15 20 15.4477 20 16C20 16.5523 19.5523 17 19 17H5C4.44772 17 4 16.5523 4 16Z"
+                  fill="#6F767E"
+                />
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M4 8C4 7.44772 4.44772 7 5 7H19C19.5523 7 20 7.44772 20 8C20 8.55228 19.5523 9 19 9H5C4.44772 9 4 8.55228 4 8Z"
+                  fill="#6F767E"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                className={!isDialogOpen ? "hidden" : "block"}
+              >
+                <path
+                  d="M6.70708 5.29289C6.31655 4.90237 5.68339 4.90237 5.29286 5.29289C4.90234 5.68342 4.90234 6.31658 5.29286 6.70711L10.5857 12L5.29277 17.2929C4.90225 17.6834 4.90225 18.3166 5.29277 18.7071C5.6833 19.0976 6.31646 19.0976 6.70698 18.7071L11.9999 13.4142L17.2929 18.7071C17.6834 19.0976 18.3166 19.0976 18.7071 18.7071C19.0976 18.3166 19.0976 17.6834 18.7071 17.2929L13.4141 12L18.707 6.70711C19.0975 6.31658 19.0975 5.68342 18.707 5.29289C18.3165 4.90237 17.6833 4.90237 17.2928 5.29289L11.9999 10.5857L6.70708 5.29289Z"
+                  fill="#6F767E"
+                />
+              </svg>
+            </div>
           </Screen>
 
           <Screen from={"lg"}>
             <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                className="w-6 h-6 opacity-70"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <SearchIcon />
               <input
                 type="text"
                 className="grow bg-transparent focus-visible:outline-none"
@@ -46,10 +105,10 @@ function Header() {
           >
             {/* Create Button */}
             <div className="dropdown dropdown-bottom dropdown-end flex-shrink-0">
-              <div className="flex items-center relative overflow-hidden rounded-box">
+              <div className="flex items-center relative overflow-hidden rounded-xl">
                 <label
                   tabIndex={0}
-                  className="btn btn-md px-3 btn-outline border-green-500 bg-green-500 hover:border-green-500 hover:bg-green-500 z-[1] relative"
+                  className="btn btn-md px-3 btn-outline border-[#90E788] bg-[#90E788] hover:border-[#90E788] hover:bg-[#90E788] z-[1] relative"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +122,7 @@ function Header() {
                       fill="#111315"
                     />
                   </svg>
-                  <span className="text-[13px] text-[#111315] font-bold">
+                  <span className="text-[13px] text-[#111315] leading-[24px] font-bold">
                     Create
                   </span>
                 </label>

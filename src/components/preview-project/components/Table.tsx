@@ -1,4 +1,3 @@
-import { BigNumber } from "ethers";
 import { twMerge } from "tailwind-merge";
 
 interface Token {

@@ -67,6 +67,21 @@
 }
 
 .steps .step-success:after {
-  color: #90e788;
-  background: #90e788;
+  background: #90e788 !important;
+}
+
+.step:after {
+  width: 12px !important;
+  height: 12px !important;
+  font-size: 0px !important;
+  background: #6f767e !important;
+}
+
+.steps .step:before {
+  background: #6f767e;
+}
+
+.ant-modal-content {
+  background: #1a1d1f !important;
+  color: #fff !important;
 }
