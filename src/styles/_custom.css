@@ -80,3 +80,8 @@
 .steps .step:before {
   background: #6f767e;
 }
+
+.ant-modal-content {
+  background: #1a1d1f !important;
+  color: #fff !important;
+}

@@ -23,11 +23,11 @@ export function Provider({ children }: PropsWithChildren) {
       new MartianWalletAdapter(),
       new AptosWalletAdapter(),
       new PontemWalletAdapter(),
-      new FewchaWalletAdapter(),
-      new BitkeepWalletAdapter(),
+      // new FewchaWalletAdapter(),
+      // new BitkeepWalletAdapter(),
       new SpikaWalletAdapter(),
       new NightlyWalletAdapter(),
-      new FletchWalletAdapter(),
+      // new FletchWalletAdapter(),
       new TokenPocketWalletAdapter(),
       new HyperPayWalletAdapter(),
     ],
@@ -37,7 +37,6 @@ export function Provider({ children }: PropsWithChildren) {
   return (
     <WalletProvider
       wallets={wallets}
-      autoConnect={true}
       onError={(error: Error) => {
         console.log("wallet errors: ", error);
         message.error(error.message);
