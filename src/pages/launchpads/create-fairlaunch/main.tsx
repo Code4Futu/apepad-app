@@ -41,10 +41,10 @@ const Main: React.FC = (props) => {
           <CreateSocialForm setIsFormDone={setIsFormDone} />
         )}
       </div>
-      <div className="flex md:hidden lg:flex xl:hidden relative flex flex-col gap-4 shrink-0 self-stretch">
+      <div className="flex lg:flex xl:hidden relative flex flex-col gap-4 shrink-0 self-stretch">
         {isFormDone && <PreviewProjectMobile item={launchpadListMockup[0]} />}
       </div>
-      <div className="hidden md:flex lg:hidden xl:flex relative items-start gap-2">
+      <div className="hidden xl:flex relative items-start gap-2">
         {isFormDone && <PreviewProject item={launchpadListMockup[0]} />}
       </div>
     </div>

@@ -66,7 +66,7 @@ export function MobileNavigation() {
           </button>
 
           <div className="modal-box--body !py-2 !px-2">
-            <MainNavigation />
+            <MainNavigation toggleDialog={toogleDialog} />
           </div>
         </form>
       </dialog>
