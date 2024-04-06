@@ -3,7 +3,6 @@ import { twMerge } from "tailwind-merge";
 
 import Screen from "../../common/Responsive";
 import MainNavigation from "../nav-main/nav-main";
-import { useHover } from "@/hooks/useHover";
 
 export default function LayoutDefault({ children }: any) {
   return (
