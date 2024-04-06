@@ -7,7 +7,7 @@ import { SearchIcon } from "@/components/icons";
 
 // ClassName
 const headerClass =
-  "sticky flex flex-col justify-start flex-shrink-0 top-0 left-0 right-0 w-full z-40 py-6 px-6 md:px-10 bg-[#1A1D1F] shadow-[inset_1px_0_0_0_#111315]";
+  "sticky flex flex-col justify-start flex-shrink-0 top-0 left-0 right-0 w-full z-40 py-6 px-6 lg:px-10 bg-[#1A1D1F] shadow-[inset_1px_0_0_0_#111315]";
 
 function Header() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -37,7 +37,7 @@ function Header() {
             </label>
           </div>
           <div className="modal-box--body !py-2 !px-2">
-            <MainNavigation />
+            <MainNavigation toggleDialog={toogleDialog} />
           </div>
         </form>
       </dialog>
@@ -50,7 +50,7 @@ function Header() {
         >
           <Screen upto={"md"}>
             <div
-              className="flex p-3 items-start gap-[10px]"
+              className="flex p-3 items-start gap-[10px] md:hidden"
               onClick={toogleDialog}
             >
               <svg
@@ -90,7 +90,7 @@ function Header() {
             </div>
           </Screen>
 
-          <Screen from={"lg"}>
+          <Screen from={"md"}>
             <label className="input border-none h-10 w-full md:w-[360px] xl:w-[411px] p-2 rounded-xl bg-[#272B30] flex items-center gap-2">
               <SearchIcon />
               <input

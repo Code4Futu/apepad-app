@@ -45,6 +45,7 @@ function WalletConnectBtn() {
             try {
               if (option.readyState === "Installed") {
                 await connect(option.name);
+                toggleDialog();
               } else {
                 window.open(option.url, "_blank");
               }

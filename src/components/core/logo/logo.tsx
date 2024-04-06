@@ -12,12 +12,12 @@ const Logo = () => {
       </Screen>
       <Screen from={"md"}>
         <Link className="flex gap-2 items-center" href={"/"}>
-          <div className="relative h-10 w-10 flex items-center">
+          <div className="relative h-[48px] w-[48px] flex items-center">
             <Image alt="" className="cursor-pointer" src="/logo.svg" fill />
           </div>
           <span
             style={{ fontFamily: "Lexend Exa, sans-serif" }}
-            className="text-xl font-medium text-white"
+            className="text-xl font-medium text-white hidden group-hover:block lg:block"
           >
             ApePad
           </span>

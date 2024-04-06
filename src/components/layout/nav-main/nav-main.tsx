@@ -89,7 +89,7 @@ const navItem = [
   },
 ];
 
-const mainNavClass = "flex flex-col w-full h-full lg:bg-[#1A1D1F]";
+const mainNavClass = "flex flex-col w-full h-full md:bg-[#1A1D1F]";
 const navItemClass =
   "flex items-center pr-4 pl-2 py-3 text-base font-bold w-full rounded-box transition flex-1";
 const navItemNormalClass =
@@ -97,14 +97,15 @@ const navItemNormalClass =
 const navItemActiveClass =
   "bg-[#272B30] shadow-[inset_0_-2px_1px_0_rgba(0,0,0,0.4),inset_0_1px_1px_0_rgba(255,255,255,0.11)] text-green-500 hover:bg-[#272B30]/20 hover:text-green-500";
 const commingSoonClass =
-  "inline-flex flex-col items-center justify-center rounded-md py-[3px] px-1 bg-[rgba(181,228,202,0.20)] text-[10px] text-[#B5E4CA] leading-[12px] font-semibold whitespace-nowrap";
+  "inline-flex flex-col items-center justify-center rounded-md py-[3px] px-1 bg-[rgba(181,228,202,0.20)] text-[10px] text-[#B5E4CA] leading-[12px] font-semibold whitespace-nowrap md:hidden group-hover:block lg:block transition-all";
 
 // Main Navigation
-function MainNavigation() {
+function MainNavigation({ toggleDialog }: { toggleDialog?: any }) {
   const pageView = useLocation();
+
   return (
     <nav className={mainNavClass}>
-      <div className="mt-6 ml-6 mb-6 hidden md:block">
+      <div className="ml-4 group-hover:ml-6 lg:ml-6 my-6 hidden md:block">
         <Logo />
       </div>
 
@@ -122,11 +123,14 @@ function MainNavigation() {
                   } ${item.disable && "pointer-events-none"}`}
                   key={idx}
                   href={item.link}
+                  onClick={() => toggleDialog()}
                 >
                   <span className="inline-flex items-center justify-center w-6 h-6 mr-3">
                     <i className={`${item.icon} text-lg`}></i>
                   </span>
-                  <span className="whitespace-nowrap mr-4">{item.name}</span>
+                  <span className="whitespace-nowrap mr-4 md:hidden group-hover:block lg:block transition-all">
+                    {item.name}
+                  </span>
                   {item.disable && (
                     <span className={commingSoonClass}>Soon</span>
                   )}
@@ -149,7 +153,7 @@ function MainNavigation() {
                       <span className="inline-flex items-center justify-center w-6 h-6 mr-5">
                         <i className={`${item.icon} text-lg`}></i>
                       </span>
-                      <span className="whitespace-nowrap mr-4">
+                      <span className="whitespace-nowrap mr-4 md:hidden group-hover:contents lg:contents transition-all">
                         {item.name}
                       </span>
                       {item.disable && (
@@ -157,7 +161,7 @@ function MainNavigation() {
                       )}
                     </div>
                   </summary>
-                  <ul className="menu-dropdown">
+                  <ul className="menu-dropdown md:hidden group-hover:block lg:block transition-all">
                     {item.subMenu.map((item, idx) => (
                       <li key={idx}>
                         {!item.disable ? (
@@ -169,6 +173,7 @@ function MainNavigation() {
                             }`}
                             key={idx}
                             href={item.link}
+                            onClick={() => toggleDialog()}
                           >
                             <span className="whitespace-nowrap mr-4">
                               {item.name}

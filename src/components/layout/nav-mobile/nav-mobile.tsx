@@ -70,7 +70,7 @@ function MobileNavigation() {
           </button>
 
           <div className="modal-box--body !py-2 !px-2">
-            <MainNavigation />
+            {/* <MainNavigation /> */}
           </div>
         </form>
       </dialog>
